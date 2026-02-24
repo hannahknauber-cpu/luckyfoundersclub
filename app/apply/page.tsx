@@ -243,30 +243,31 @@ export default function ApplyPage() {
             </div>
           )}
 
-          <div className="flex justify-between items-center pt-4">
+          <div className="grid grid-cols-2 gap-3 w-full pt-4 sm:flex sm:justify-between sm:items-center sm:gap-4">
             {step === 1 ? (
-              <span className="w-20" />
+              <span className="hidden sm:block" aria-hidden />
             ) : (
-              <button
+              <Button
                 type="button"
+                variant="outline"
                 onClick={prev}
-                className="text-white hover:underline underline-offset-2 text-sm font-medium bg-transparent border-0 cursor-pointer p-0"
+                className="h-12 w-full rounded-md border-white text-white bg-transparent hover:bg-white/10 text-base sm:h-10 sm:w-auto"
               >
                 Zurück
-              </button>
+              </Button>
             )}
-            <div className={cn("flex justify-end", step === 1 && "flex-1")}>
+            <div className={cn("col-start-2 sm:col-auto", step === 1 && "col-start-1 col-span-2")}>
               {step < TOTAL_STEPS ? (
                 <Button
                   type="submit"
-                  className="rounded-xl bg-secondary text-black hover:bg-secondary/90"
+                  className="h-12 w-full rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
                 >
                   Weiter
                 </Button>
               ) : (
                 <Button
                   type="submit"
-                  className="rounded-xl bg-secondary text-black hover:bg-secondary/90"
+                  className="h-12 w-full rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
                 >
                   Bewerbung absenden
                 </Button>
