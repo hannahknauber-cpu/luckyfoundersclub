@@ -74,7 +74,7 @@ export default function ApplyPage() {
                 alt="Lucky Founders Club"
                 width={200}
                 height={72}
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain sm:h-20 md:h-24 lg:h-28"
               />
             </Link>
           </header>
@@ -113,7 +113,7 @@ export default function ApplyPage() {
               alt="Lucky Founders Club"
               width={200}
               height={72}
-              className="h-12 w-auto object-contain sm:h-14"
+              className="h-32 w-auto object-contain sm:h-14"
             />
           </Link>
         </header>
