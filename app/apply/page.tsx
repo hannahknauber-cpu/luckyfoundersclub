@@ -74,7 +74,7 @@ export default function ApplyPage() {
                 alt="Lucky Founders Club"
                 width={200}
                 height={72}
-                className="h-16 w-auto object-contain sm:h-20 md:h-24 lg:h-28"
+                className="h-20 w-auto object-contain sm:h-24 md:h-28 lg:h-32"
               />
             </Link>
           </header>
@@ -113,7 +113,7 @@ export default function ApplyPage() {
               alt="Lucky Founders Club"
               width={200}
               height={72}
-              className="h-32 w-auto object-contain sm:h-14"
+              className="h-28 w-auto object-contain sm:h-28 md:h-28 lg:h-28"
             />
           </Link>
         </header>
@@ -243,31 +243,30 @@ export default function ApplyPage() {
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-3 w-full pt-4 sm:flex sm:justify-between sm:items-center sm:gap-4">
+          <div className="flex justify-between items-center pt-4">
             {step === 1 ? (
-              <span className="hidden sm:block" aria-hidden />
+              <span className="w-20" />
             ) : (
-              <Button
+              <button
                 type="button"
-                variant="outline"
                 onClick={prev}
-                className="h-12 w-full rounded-md border-white text-white bg-transparent hover:bg-white/10 text-base sm:h-10 sm:w-auto"
+                className="text-white hover:underline underline-offset-2 text-sm font-medium bg-transparent border-0 cursor-pointer p-0"
               >
                 Zurück
-              </Button>
+              </button>
             )}
-            <div className={cn("col-start-2 sm:col-auto", step === 1 && "col-start-1 col-span-2")}>
+            <div className={cn("flex justify-end", step === 1 && "flex-1")}>
               {step < TOTAL_STEPS ? (
                 <Button
                   type="submit"
-                  className="h-12 w-full rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
+                  className="rounded-xl bg-secondary text-black hover:bg-secondary/90"
                 >
                   Weiter
                 </Button>
               ) : (
                 <Button
                   type="submit"
-                  className="h-12 w-full rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
+                  className="rounded-xl bg-secondary text-black hover:bg-secondary/90"
                 >
                   Bewerbung absenden
                 </Button>

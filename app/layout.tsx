@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/Luckyfounderclub.png",
+    icon: "/favicon.svg",
   },
 };
 
