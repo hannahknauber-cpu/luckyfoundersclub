@@ -41,6 +41,8 @@ const TOTAL_STEPS = 5;
 
 export default function ApplyPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
     name: "",
@@ -56,14 +58,38 @@ export default function ApplyPage() {
   const next = () => setStep((s) => Math.min(s + 1, TOTAL_STEPS));
   const prev = () => setStep((s) => Math.max(s - 1, 1));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
+
     if (step < TOTAL_STEPS) {
       next();
       return;
     }
-    console.log("Bewerbung:", form);
-    setSubmitted(true);
+
+    try {
+      setIsSubmitting(true);
+
+      const response = await fetch("/api/apply", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error("Webhook request failed");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError(
+        "Deine Bewerbung konnte gerade nicht gesendet werden. Bitte versuche es gleich nochmal."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -219,6 +245,12 @@ export default function ApplyPage() {
             </div>
           )}
 
+          {submitError ? (
+            <p className="text-sm text-white bg-white/10 border border-white/30 rounded-md px-3 py-2">
+              {submitError}
+            </p>
+          ) : null}
+
           <div className="grid grid-cols-2 gap-3 w-full pt-4 sm:flex sm:justify-between sm:items-center sm:gap-4">
             {step === 1 ? (
               <span className="hidden sm:block" aria-hidden />
@@ -227,6 +259,7 @@ export default function ApplyPage() {
                 type="button"
                 variant="outline"
                 onClick={prev}
+                disabled={isSubmitting}
                 className="h-12 w-full rounded-md border-white text-white bg-transparent hover:bg-white/10 text-base sm:h-10 sm:w-auto"
               >
                 Zurück
@@ -237,16 +270,17 @@ export default function ApplyPage() {
                 <Button
                   type="submit"
                   className="h-12 w-full rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
-                  disabled={step === 3 && !form.interviewSeries}
+                  disabled={isSubmitting || (step === 3 && !form.interviewSeries)}
                 >
-                  Weiter
+                  {isSubmitting ? "Sende..." : "Weiter"}
                 </Button>
               ) : (
                 <Button
                   type="submit"
                   className="h-12 w-full rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
+                  disabled={isSubmitting}
                 >
-                  Bewerbung absenden
+                  {isSubmitting ? "Sende..." : "Bewerbung absenden"}
                 </Button>
               )}
             </div>
