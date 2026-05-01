@@ -10,41 +10,44 @@ import { cn } from "@/lib/utils";
 
 const STEPS = [
   { id: 1, question: "Wie heißt du?", description: "Dein Name." },
-  { id: 2, question: "Wie können wir dich per E-Mail erreichen?", description: "Deine E-Mail-Adresse." },
-  { id: 3, question: "LinkedIn-Profil (optional)", description: "Link zu deinem Profil." },
-  { id: 4, question: "Name des Startups / Projekts", description: "Wie heißt dein Startup?" },
-  { id: 5, question: "Deine Rolle", description: "z. B. Gründer, Co-Founder." },
-  { id: 6, question: "Website (optional)", description: "Link zur Website." },
   {
-    id: 7,
-    question: "Warum möchtest du beim Lucky Founders Club dabei sein?",
-    description: "Wähle eine Option oder schreib es in eigenen Worten.",
+    id: 2,
+    question: "Was ist dein Business bzw. deine Business-Idee?",
+    description: "Beschreibe kurz, was du aufbaust.",
+  },
+  {
+    id: 3,
+    question: "Möchtest du Teil der Interview-Serie auf Instagram sein?",
+    description: "Wähle Ja oder Nein.",
+  },
+  {
+    id: 4,
+    question: "Unter welcher E-Mail-Adresse können wir dich erreichen?",
+    description: "Deine Kontaktadresse.",
+  },
+  {
+    id: 5,
+    question: "Welche Themen im Bereich Gründung interessieren dich?",
+    description: "Teile uns deine Interessen mit.",
   },
 ] as const;
 
-const MOTIVATION_OPTIONS = [
-  "Networking mit anderen Gründern",
-  "Mentoring & Erfahrungsaustausch",
-  "Zugang zu Investoren",
-  "Lernen von Best Practices",
-  "Gemeinsam wachsen",
-  "Sonstiges",
+const INTERVIEW_OPTIONS = [
+  { label: "Ja, gerne", value: "ja" },
+  { label: "Nein, danke", value: "nein" },
 ] as const;
 
-const TOTAL_STEPS = 7;
+const TOTAL_STEPS = 5;
 
 export default function ApplyPage() {
   const [submitted, setSubmitted] = useState(false);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
     name: "",
+    business: "",
+    interviewSeries: "",
     email: "",
-    linkedin: "",
-    startupName: "",
-    role: "",
-    website: "",
-    motivationPreset: "",
-    motivation: "",
+    interests: "",
   });
 
   const update = (field: keyof typeof form, value: string) =>
@@ -157,6 +160,40 @@ export default function ApplyPage() {
           )}
 
           {step === 2 && (
+            <Textarea
+              id="business"
+              rows={5}
+              placeholder="Erzähl uns von deinem Business oder deiner Idee..."
+              value={form.business}
+              onChange={(e) => update("business", e.target.value)}
+              required
+              className={textareaClass}
+            />
+          )}
+
+          {step === 3 && (
+            <div className="space-y-6">
+              <div className="grid gap-3">
+                {INTERVIEW_OPTIONS.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => update("interviewSeries", option.value)}
+                    className={cn(
+                      "w-full rounded-xl border px-4 py-3 text-left text-sm font-medium text-white transition-colors hover:bg-white/20",
+                      form.interviewSeries === option.value
+                        ? "border-white bg-white/20 ring-2 ring-white/50"
+                        : "border-white bg-white/10"
+                    )}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {step === 4 && (
             <Input
               id="email"
               type="email"
@@ -168,105 +205,46 @@ export default function ApplyPage() {
             />
           )}
 
-          {step === 3 && (
-            <Input
-              id="linkedin"
-              type="url"
-              placeholder="https://linkedin.com/in/..."
-              value={form.linkedin}
-              onChange={(e) => update("linkedin", e.target.value)}
-              className={inputClass}
-            />
-          )}
-
-          {step === 4 && (
-            <Input
-              id="startupName"
-              placeholder="Mein Startup GmbH"
-              value={form.startupName}
-              onChange={(e) => update("startupName", e.target.value)}
-              required
-              className={inputClass}
-            />
-          )}
-
           {step === 5 && (
-            <Input
-              id="role"
-              placeholder="z. B. Gründer, Co-Founder"
-              value={form.role}
-              onChange={(e) => update("role", e.target.value)}
-              required
-              className={inputClass}
-            />
-          )}
-
-          {step === 6 && (
-            <Input
-              id="website"
-              type="url"
-              placeholder="https://..."
-              value={form.website}
-              onChange={(e) => update("website", e.target.value)}
-              className={inputClass}
-            />
-          )}
-
-          {step === 7 && (
             <div className="space-y-6">
-              <div className="grid gap-3">
-                {MOTIVATION_OPTIONS.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => update("motivationPreset", option)}
-                    className={cn(
-                      "w-full rounded-xl border px-4 py-3 text-left text-sm font-medium text-white transition-colors hover:bg-white/20",
-                      form.motivationPreset === option
-                        ? "border-white bg-white/20 ring-2 ring-white/50"
-                        : "border-white bg-white/10"
-                    )}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
               <Textarea
-                id="motivation"
+                id="interests"
                 rows={5}
-                placeholder="Oder beschreibe deine Motivation in eigenen Worten..."
-                value={form.motivation}
-                onChange={(e) => update("motivation", e.target.value)}
-                required={!form.motivationPreset}
+                placeholder="z. B. Community, Finanzierung, Personal Branding, Growth..."
+                value={form.interests}
+                onChange={(e) => update("interests", e.target.value)}
+                required
                 className={textareaClass}
               />
             </div>
           )}
 
-          <div className="flex justify-between items-center pt-4">
+          <div className="grid grid-cols-2 gap-3 w-full pt-4 sm:flex sm:justify-between sm:items-center sm:gap-4">
             {step === 1 ? (
-              <span className="w-20" />
+              <span className="hidden sm:block" aria-hidden />
             ) : (
-              <button
+              <Button
                 type="button"
+                variant="outline"
                 onClick={prev}
-                className="text-white hover:underline underline-offset-2 text-sm font-medium bg-transparent border-0 cursor-pointer p-0"
+                className="h-12 w-full rounded-md border-white text-white bg-transparent hover:bg-white/10 text-base sm:h-10 sm:w-auto"
               >
                 Zurück
-              </button>
+              </Button>
             )}
-            <div className={cn("flex justify-end", step === 1 && "flex-1")}>
+            <div className={cn("col-start-2 sm:col-auto", step === 1 && "col-start-1 col-span-2")}>
               {step < TOTAL_STEPS ? (
                 <Button
                   type="submit"
-                  className="rounded-xl bg-secondary text-black hover:bg-secondary/90"
+                  className="h-12 w-full rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
+                  disabled={step === 3 && !form.interviewSeries}
                 >
                   Weiter
                 </Button>
               ) : (
                 <Button
                   type="submit"
-                  className="rounded-xl bg-secondary text-black hover:bg-secondary/90"
+                  className="h-12 w-full rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
                 >
                   Bewerbung absenden
                 </Button>
