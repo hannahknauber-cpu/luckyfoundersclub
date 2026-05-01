@@ -111,15 +111,11 @@ export default function ApplyPage() {
             <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
               Danke für deine Bewerbung
             </h1>
-            <p className="text-lg text-white/90">
-              Bitte bestätige deine E-Mail-Adresse.
-            </p>
-            <p className="text-sm text-white/80">
-              Wir haben dir eine E-Mail geschickt. Klicke auf den Link in der
-              E-Mail, um deine Anmeldung abzuschließen.
-            </p>
           </div>
-          <Button asChild className="rounded-xl bg-secondary text-white hover:bg-secondary/90">
+          <Button
+            asChild
+            className="h-12 rounded-md bg-secondary text-black hover:bg-secondary/90 text-base sm:h-10 sm:w-auto"
+          >
             <Link href="/">Zurück zur Startseite</Link>
           </Button>
         </div>
