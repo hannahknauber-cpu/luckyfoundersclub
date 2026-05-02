@@ -19,7 +19,7 @@ export default function Home() {
             />
           </Link>
           <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
-            Gründer*innenstories aus Stuttgart
+            Gründer*innenstories aus Stuttgart1
           </h1>
           <p className="max-w-2xl font-medium text-lg text-muted-foreground sm:text-lg md:text-xl">
             Exklusive Community für kreative Founder. Erzähle deine
