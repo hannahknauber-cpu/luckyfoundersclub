@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "Exklusive Community für ambitionierte Founder. Vernetze dich und baue gemeinsam etwas Großes.",
     images: [
       {
-        url: "/Luckyfounderclub.png",
+        url: "/LFC_Logo_Colored_Sand.png",
         width: 1200,
         height: 630,
         alt: "Lucky Founders Club",

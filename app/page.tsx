@@ -10,10 +10,10 @@ export default function Home() {
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 sm:gap-8">
           <Link href="/" className="block shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
             <Image
-              src="/Luckyfounderclub.png"
+              src="/LFC_Logo_Colored_Sand.png"
               alt="Lucky Founders Club"
-              width={220}
-              height={80}
+              width={480}
+              height={160}
               className="h-16 w-auto object-contain sm:h-20 md:h-24 lg:h-28"
               priority
             />

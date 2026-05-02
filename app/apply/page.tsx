@@ -99,10 +99,10 @@ export default function ApplyPage() {
           <header>
             <Link href="/" className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
               <Image
-                src="/Luckyfounderclub.png"
+                src="/LFC_Logo_Colored_Sand.png"
                 alt="Lucky Founders Club"
-                width={200}
-                height={72}
+                width={480}
+                height={160}
                 className="h-20 w-auto object-contain sm:h-24 md:h-28 lg:h-32"
               />
             </Link>
@@ -134,10 +134,10 @@ export default function ApplyPage() {
         <header className="mb-10 text-center">
           <Link href="/" className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
             <Image
-              src="/Luckyfounderclub.png"
+              src="/LFC_Logo_Colored_Sand.png"
               alt="Lucky Founders Club"
-              width={200}
-              height={72}
+              width={480}
+              height={160}
               className="h-28 w-auto object-contain sm:h-28 md:h-28 lg:h-28"
             />
           </Link>

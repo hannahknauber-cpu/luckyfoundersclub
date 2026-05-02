@@ -10,10 +10,10 @@ export default function NotFound() {
         className="mb-8 block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
       >
         <Image
-          src="/Luckyfounderclub.png"
+          src="/LFC_Logo_Colored_Sand.png"
           alt="Lucky Founders Club"
-          width={220}
-          height={80}
+          width={480}
+          height={160}
           className="h-14 w-auto object-contain sm:h-16"
         />
       </Link>
