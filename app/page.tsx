@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -39,15 +39,6 @@ export default function Home() {
               aria-label="Instagram"
             >
               <Instagram className="size-6" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/luckyfoundersclub/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground active:scale-95"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="size-6" />
             </a>
           </div>
           <div className="mt-2 flex items-center gap-3 sm:gap-4">
