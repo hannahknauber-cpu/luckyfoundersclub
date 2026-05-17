@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
     <div className="min-h-screen min-h-[100dvh] bg-secondary">
-      <section className="relative flex min-h-screen min-h-[100dvh] flex-col items-center justify-center px-4 text-center sm:px-6">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 sm:gap-8">
+      <section className="relative flex min-h-screen min-h-[100dvh] flex-col items-center px-4 pb-20 text-center sm:px-6 sm:pb-24">
+        <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-6 sm:gap-8">
           <Link href="/" className="block shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
             <Image
               src="/LFC_Logo_Colored_Sand.png"
@@ -26,11 +27,17 @@ export default function Home() {
             Gründungsgeschichte, vernetze dich und lerne von den Besten!
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <Button asChild size="lg" className="h-12 text-base sm:h-10">
-              <Link href="/apply">Join the club.</Link>
-            </Button>
+            <Link
+              href="/apply"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "h-12 text-base sm:h-10"
+              )}
+            >
+              Join the club.
+            </Link>
           </div>
-          <div className="flex items-center justify-center gap-6 pt-2 sm:gap-4 sm:pt-4">
+          <div className="flex items-center justify-center gap-6 pt-2 pb-10 sm:gap-4 sm:pt-4 sm:pb-14">
             <a
               href="https://www.instagram.com/luckyfounders.club/"
               target="_blank"
@@ -50,18 +57,18 @@ export default function Home() {
               <Linkedin className="size-6" />
             </a>
           </div>
-          <div className="mt-2 flex items-center gap-3 sm:gap-4">
-            <p className="text-sm font-medium text-muted-foreground">
-              Gefördert von
-            </p>
-            <Image
-              src="/STUTTGART%20mit%20Pferd.png"
-              alt="Stuttgart Logo"
-              width={220}
-              height={56}
-              className="h-8 w-auto object-contain sm:h-10"
-            />
-          </div>
+        </div>
+        <div className="mt-auto flex items-center justify-center gap-3 pb-8 pt-4 sm:gap-4 sm:pb-12 sm:pt-6">
+          <p className="text-sm font-medium text-muted-foreground">
+            Gefördert von
+          </p>
+          <Image
+            src="/STUTTGART%20mit%20Pferd.png"
+            alt="Stuttgart Logo"
+            width={220}
+            height={56}
+            className="h-8 w-auto object-contain sm:h-10"
+          />
         </div>
       </section>
     </div>
