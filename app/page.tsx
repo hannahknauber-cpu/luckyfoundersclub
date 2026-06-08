@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
-    <div className="min-h-screen min-h-[100dvh] bg-secondary">
+    <div className="min-h-screen min-h-[100dvh] bg-background">
       <section className="relative flex min-h-screen min-h-[100dvh] flex-col items-center px-4 pb-20 text-center sm:px-6 sm:pb-24">
         <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-6 sm:gap-8">
           <Link href="/" className="block shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
