@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-secondary flex flex-col items-center justify-center px-6 py-24 text-center">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6 py-24 text-center">
       <Link
         href="/"
         className="mb-8 block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
