@@ -11,7 +11,7 @@ export default function Home() {
         <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-6 sm:gap-8">
           <Link href="/" className="block shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
             <Image
-              src="/LFC_Logo_Colored_Sand.png"
+              src="/LFC_Logo_Black_White.png"
               alt="Lucky Founders Club"
               width={480}
               height={160}
