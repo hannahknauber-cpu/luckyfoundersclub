@@ -74,3 +74,9 @@ export default function Home() {
     </div>
   );
 }
+<Link
+  href="/impressum"
+  className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+>
+  Impressum
+</Link>
