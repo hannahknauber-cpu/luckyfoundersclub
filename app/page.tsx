@@ -58,25 +58,47 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="mt-auto flex items-center justify-center gap-3 pb-8 pt-4 sm:gap-4 sm:pb-12 sm:pt-6">
-          <p className="text-sm font-medium text-muted-foreground">
-            Gefördert von
-          </p>
-          <Image
-            src="/STUTTGART%20mit%20Pferd.png"
-            alt="Stuttgart Logo"
-            width={220}
-            height={56}
-            className="h-8 w-auto object-contain sm:h-10"
-          />
-        </div>
-      </section>
-    </div>
-  );
-}
-<Link
-  href="/impressum"
-  className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
->
-  Impressum
-</Link>
+        <div className="mt-auto w-full flex flex-col items-center gap-4 pb-8 pt-4 sm:pb-12 sm:pt-6">
+  
+  <div className="flex items-center justify-center gap-3 sm:gap-4">
+    <p className="text-sm font-medium text-muted-foreground">
+      Gefördert von
+    </p>
+
+    <Image
+      src="/STUTTGART%20mit%20Pferd.png"
+      alt="Stuttgart Logo"
+      width={220}
+      height={56}
+      className="h-8 w-auto object-contain sm:h-10"
+    />
+  </div>
+
+  <div className="flex items-center gap-6">
+    <a
+      href="https://www.instagram.com/luckyfounders.club/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-sm text-muted-foreground hover:text-foreground transition"
+    >
+      Instagram
+    </a>
+
+    <a
+      href="https://www.linkedin.com/company/lucky-founders-club/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-sm text-muted-foreground hover:text-foreground transition"
+    >
+      LinkedIn
+    </a>
+
+    <Link
+      href="/impressum"
+      className="text-sm text-muted-foreground hover:text-foreground transition"
+    >
+      Impressum
+    </Link>
+  </div>
+
+</div>
