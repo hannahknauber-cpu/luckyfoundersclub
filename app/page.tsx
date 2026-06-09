@@ -75,23 +75,7 @@ export default function Home() {
   </div>
 
   <div className="flex items-center gap-6">
-    <a
-      href="https://www.instagram.com/luckyfounders.club/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-sm text-muted-foreground hover:text-foreground transition"
-    >
-      Instagram
-    </a>
-
-    <a
-      href="https://www.linkedin.com/company/lucky-founders-club/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-sm text-muted-foreground hover:text-foreground transition"
-    >
-      LinkedIn
-    </a>
+    
 
     <Link
       href="/impressum"
