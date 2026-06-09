@@ -4,14 +4,14 @@ export default function Impressum() {
       <h1>Impressum</h1>
 
       <p>
-        Vorname Nachname<br />
-        Straße Hausnummer<br />
-        PLZ Ort<br />
+        Hannah Knauber<br />
+        Burgstallstraße 68<br />
+        70199 Stuttgart<br />
         Deutschland
       </p>
 
       <p>
-        E-Mail: deine@email.de
+        E-Mail: hello@hannahlee.media
       </p>
     </main>
   );
